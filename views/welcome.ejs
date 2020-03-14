@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to vote</title>
+    <script type = "text/javascript" >
+      function preventBack(){window.history.forward();}
+       setTimeout("preventBack()", 0);
+       window.onunload=function(){null};
+   </script>
+   <link rel="stylesheet" href="css/welcome.css">
+</head>
+<body>
+  <div  class="container">
+    <button class="btn"  onclick="window.location.href = '\\';">Logout</button>
+  </div>
+      <div >
+    <h1 id="wel">Logged in as <%= welname%></h1>
+    </div>
+    <div> 
+  <form action="\vote" method="POST" id="form1">
+    <p style="font-size: 30px;">Please choose a candidate</p>
+    <label>One <input type="radio" name="name" value="1" required="required"/></label><br>
+    <label>Two <input type="radio" name="name" value="2"/></label><br>
+    <label>Three <input type="radio" name="name" value="3"/></label><br>
+    <label>Four <input type="radio" name="name" value="4"/></label><br>
+    <input type="submit" name="submit" value="VOTE" id="button2">
+    <p id="idx"><%= welcomeins%></p>
+  </form>
+  </div>
+</body>
+</html>
+
