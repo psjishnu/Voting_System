@@ -30,7 +30,6 @@ let minutes = date_ob.getMinutes();
 let seconds = date_ob.getSeconds();
 var dte="";
 dte= year+"-"+month+"-"+date+" "+hours+":"+minutes+":"+seconds;
-console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
 return dte;
 }
 class Block{
