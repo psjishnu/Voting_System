@@ -1,7 +1,7 @@
     body
 {
-    background-image: url(sql.jpg);
     background-size: 1600px 900px;
+    background-image: url(img/vote.jpg);
     border-top: 50px;
     margin-top: 50px;
     background-color: lightgreen;
@@ -26,7 +26,7 @@
     font-family:Audiowide;
     text-align:center;
     font-size:50px;
-    color:black;
+    color:whitesmoke;   
 }
 
 .q1
@@ -197,6 +197,5 @@
             font-weight: bold;
         }
 #cus1{
-    background-color: darkgreen;
     margin-left: 25%;margin-right: 25%;padding-bottom: 50pt;
 }

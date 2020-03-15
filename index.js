@@ -32,7 +32,7 @@ var dte="";
 dte= year+"-"+month+"-"+date+" "+hours+":"+minutes+":"+seconds;
 return dte;
 }
-class Block{
+class Block{init
   constructor(index,timestamp ,data , previousHash= '')
   {
       this.index=index;
