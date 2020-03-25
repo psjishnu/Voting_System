@@ -10,4 +10,3 @@
            vote => ` create table vote (name varchar(30) , v int ); `
            customers => ` create table customers ( name varchar(225) ,address varchar(225) ); `
 
-   ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
