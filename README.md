@@ -6,5 +6,5 @@
 4. Open a terminal inside folder Voting_Systems . 
 5. Change the value for database accordingly in the file index.js
 6. Create 2 table vote and customers in the provided databases 
-          vote => create table vote (name varchar(30) , v int );
-          customers => create table customers ( name varchar(225) ,address varchar(225) );
+          vote => ` create table vote (name varchar(30) , v int ); `
+          customers => ` create table customers ( name varchar(225) ,address varchar(225) ); `
