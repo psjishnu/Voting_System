@@ -10,6 +10,6 @@
            vote => `create table vote (name varchar(30) , v int );`
            customers => `create table customers ( name varchar(225) ,address varchar(225) );`
            
-           ![Image of welcome page](https://github.com/psjishnu/test2/blob/master/welcome.png)
+           ![Image of welcome page](https://gist.github.com/psjishnu/bb6fc67f330e77ee90077ce97edf275d)
 
 
