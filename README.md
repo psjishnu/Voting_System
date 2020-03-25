@@ -7,6 +7,8 @@
 5. Change the value for database accordingly in the file index.js
 6. Create 2 table vote and customers in the provided  databases 
 
-           vote => ` create table vote (name varchar(30) , v int ); `
-           customers => ` create table customers ( name varchar(225) ,address varchar(225) ); `
+           vote => `create table vote (name varchar(30) , v int );`
+           customers => `create table customers ( name varchar(225) ,address varchar(225) );`
 
+
+![Image of Yaktocat](https://gist.github.com/psjishnu/2aa50679b01a425664b02c56320b3f37#file-admin-png)
