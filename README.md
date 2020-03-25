@@ -11,4 +11,3 @@
            customers => `create table customers ( name varchar(225) ,address varchar(225) );`
 
 
-![Image of Yaktocat](https://gist.github.com/psjishnu/2aa50679b01a425664b02c56320b3f37#file-admin-png)
