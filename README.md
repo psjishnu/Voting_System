@@ -7,12 +7,12 @@
 5. Change the value for database accordingly in the file index.js
 6. Create 2 table vote and customers in the provided  databases as follows
          
-           `create table customers ( name varchar(225) ,address varchar(225));`
+           create table customers ( name varchar(225) ,address varchar(225));
           
            
-           ```
+           
            create table vote (name varchar(30) , v int );
-           ```
+           
 
 7.**IMAGES**
 
