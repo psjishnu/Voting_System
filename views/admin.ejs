@@ -1,50 +1,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-   <title>Admin</title>
-   <link rel="stylesheet" href="css/admin.css">
-</head>
-<body>
-    <div  class="container">
-        <button class="btn1"  onclick="window.location.href = '\\';">Logout</button>
-        <button class="btn2"  onclick="window.location.href = '\\rollback';">Rollback</button>
-        <button class="btn3"  onclick="window.location.href = '\\clear';">REPOLL</button>
-    </div>
-    <h1 id="wel">Welcome Admin</h1>
-    <p id="x1"><%= adminmsg %></p>
-    <br><br><br><br>
-    <div class="alltable" >
-    <table id="list1">
-      <tr>
-        <th>Name</th>
-        <th>Vote</th><span></span>
-        <th>Time</th>
-      </tr>
-      <% for(var i=1; i<contacts.length; i++) {%>
-          <tr class="list-group-item">
-             <td><%= contacts[i].data %></td>
-              <td><%= contacts[i].index %></td>
-              <td><%= contacts[i].timestamp%></td>
-              <br>
+  <head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+  </head>
+  <body>
+      <div  class="container">
+          <button class="btn1"  onclick="window.location.href = '\\';">Logout</button>
+          <button class="btn2"  onclick="window.location.href = '\\rollback';">Rollback</button>
+          <button class="btn3"  onclick="window.location.href = '\\clear';">REPOLL</button>
+      </div>
+      <h1 id="wel">Welcome Admin</h1>
+      <p id="x1"><%= adminmsg %></p>
+      <br><br><br><br>
+      <div class="alltable" >
+        <table id="list1">
+          <tr>
+            <th>Name</th>
+            <th>Vote</th><span></span>
+            <th>Time</th>
           </tr>
-      <% } %>
-    </table>
-    <table id="list2">
-      <tr>
-        <th colspan="2">Results</th>
-      </tr>
-      <tr>
-        <th>Name</th>
-        <th>Votes</th>
-      </tr>
-      <% for(var i=0; i<contacts1.length; i=i+2) {%>
-          <tr class="list-group-item">
+          <% for(var i=1; i<contacts.length; i++)
+          {%>
+              <tr class="list-group-item">
+                <td><%= contacts[i].data %></td>
+                <td><%= contacts[i].index %></td>
+                <td><%= contacts[i].timestamp%></td>
+                <br>
+              </tr>
+          <% } %>
+      </table>
+      <table id="list2">
+        <tr>
+          <th colspan="2">Results</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Votes</th>
+        </tr>
+        <% for(var i=0; i<contacts1.length; i=i+2) {%>
+            <tr class="list-group-item">
             <td><%= contacts1[i] %></td>
             <td><%= contacts1[i+1] %></td>
-          </tr>
-      <% } %>
-    </table>
-
-  </div>
-
-</body>
+            </tr>
+        <% } %>
+      </table>
+    </div>
+  </body>
 </html>
