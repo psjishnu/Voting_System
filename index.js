@@ -20,7 +20,7 @@ var con = mysql.createConnection({
   user: "root",
   password: "password",
   database: "jishnu",
-  //Create a table customers in jishnu with varchar name and varchar address
+  //Create a table voters in jishnu with varchar name and varchar address
 });
 function Dategen() {
   let date_ob = new Date();
@@ -84,6 +84,16 @@ con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 });
+con.query('show tables like "voters"', function (err, result, fields) {
+  if (result.length == 0) {
+    con.query("create table voters(name varchar(100) , password varchar(100))");
+  }
+});
+con.query('show tables like "vote"', function (err, result, fields) {
+  if (result.length == 0) {
+    con.query("create table vote(name varchar(100) , vote int)");
+  }
+});
 
 var server = app.listen(8000, function () {
   var host = server.address().address;
@@ -120,18 +130,18 @@ app.get("/ensure", function (req, res) {
   });
   function ins(q1, q2, q3) {
     if (q3 == 0) {
-      res.render("new", { response: "NO VOTES POLLED", logg: "" });
+      res.render("login", { response: "NO VOTES POLLED", logg: "" });
     } else if (q1 == 1 && q2 == 0) {
-      res.render("new", { response: "THE DATA IS INTACT", logg: "" });
+      res.render("login", { response: "THE DATA IS INTACT", logg: "" });
     } else if (q2 == 1) {
-      res.render("new", { response: "ERROR (RESTART)", logg: "" });
+      res.render("login", { response: "ERROR (RESTART)", logg: "" });
     } else {
-      res.render("new", { response: "DATA TAMPERED!", logg: "" });
+      res.render("login", { response: "DATA TAMPERED!", logg: "" });
     }
   }
 });
 app.get("/", function (req, res) {
-  res.render("new", { response: "", logg: "" });
+  res.render("login", { response: "", logg: "" });
 });
 app.get("/register", urlencodedParser, function (req, res) {
   res.render("register", { regresult: "" });
@@ -142,7 +152,7 @@ app.post("/thank1", urlencodedParser, function (req, res) {
   var npre = "";
   var ns = "";
   var lock = 0;
-  var sql = "INSERT INTO customers (name, address) VALUES ('x1', 'x2')";
+  var sql = "INSERT INTO voters (name, password) VALUES ('x1', 'x2')";
   nn = req.body.name;
   np = req.body.password;
   ns = req.body.submit;
@@ -155,11 +165,7 @@ app.post("/thank1", urlencodedParser, function (req, res) {
     }
     ins(x1);
   }
-  con.query("SELECT name,address FROM customers", function (
-    err,
-    result,
-    fields
-  ) {
+  con.query("SELECT name,password FROM voters", function (err, result, fields) {
     for (i = 0; i < result.length; i++) {
       if (result[i].name == nn) {
         lock = 1;
@@ -188,13 +194,13 @@ app.post("/vote", urlencodedParser, function (req, res) {
   var nn = "";
   nn = req.body.name;
   var inn = 0;
-  var sql = "INSERT INTO vote (name, v) VALUES ('x1', x2)";
+  var sql = "INSERT INTO vote (name, vote) VALUES ('x1', x2)";
   sql = sql.replace("x1", loggedinname);
   sql = sql.replace("x2", nn);
   function verify(x) {
     ins(x);
   }
-  con.query("SELECT name,v FROM vote", function (err, result, fields) {
+  con.query("SELECT name,vote FROM vote", function (err, result, fields) {
     var lock = 0;
     for (i = 0; i < result.length; i++) {
       if (loggedinname == result[i].name) {
@@ -212,12 +218,12 @@ app.post("/vote", urlencodedParser, function (req, res) {
         console.log("vote inserted");
       });
       jis.addBlock(new Block(nn, p, loggedinname));
-      res.render("welcome", {
+      res.render("vote", {
         welname: loggedinname,
         welcomeins: "VOTED SUCCESSFULLY",
       });
     } else {
-      res.render("welcome", {
+      res.render("vote", {
         welname: loggedinname,
         welcomeins: "ALREADY VOTED",
       });
@@ -233,7 +239,7 @@ app.post("/thank", urlencodedParser, function (req, res) {
   var nn = "";
   var np = "";
   var ns = "";
-  var sql = "INSERT INTO customers (name, address) VALUES ('x1', 'x2')";
+  var sql = "INSERT INTO voters (name, password) VALUES ('x1', 'x2')";
   nn = req.body.name;
   np = req.body.password;
   ns = req.body.submit;
@@ -268,7 +274,7 @@ app.post("/thank", urlencodedParser, function (req, res) {
       });
     }
   } else {
-    con.query("SELECT name,address FROM customers", function (
+    con.query("SELECT name,password FROM voters", function (
       err,
       result,
       fields
@@ -276,17 +282,17 @@ app.post("/thank", urlencodedParser, function (req, res) {
       if (err) throw err;
       var inn = 0;
       for (i = 0; i < result.length; i++) {
-        if (nn == result[i].name && np == result[i].address) {
+        if (nn == result[i].name && np == result[i].password) {
           inn = 1;
           break;
         }
       }
       if (inn == 1) {
         loggedinname = nn;
-        res.render("welcome", { welname: nn, welcomeins: "" });
+        res.render("vote", { welname: nn, welcomeins: "" });
       }
       if (inn == 0) {
-        res.render("new", { response: "", logg: "INVALID CREDENTIALS" });
+        res.render("login", { response: "", logg: "INVALID CREDENTIALS" });
       }
     });
   }
@@ -330,5 +336,5 @@ app.get("/rollback", urlencodedParser, function (req, res) {
 app.get("/clear", urlencodedParser, function (req, res) {
   jis = new Blockchain();
   con.query("delete from vote", function (err, result, fields) {});
-  res.render("new", { response: "DATA CLEARED", logg: "" });
+  res.render("login", { response: "DATA CLEARED", logg: "" });
 });
