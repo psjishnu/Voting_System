@@ -7,7 +7,7 @@
 5. Change the value for database accordingly in the file index.js
 
 
-6. **IMAGES**
+ **IMAGES**
 
 1. Welcome Page
 
