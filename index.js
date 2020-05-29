@@ -109,7 +109,7 @@ app.get("/ensure", function (req, res) {
   function fun1(x, y, z) {
     ins(x, y, z);
   }
-  con.query("SELECT name,v FROM vote", function (err, result, fields) {
+  con.query("SELECT name,vote FROM vote", function (err, result, fields) {
     var safe = 1,
       restart = 1,
       datapresent = 1;
@@ -308,7 +308,7 @@ app.get("/rollback", urlencodedParser, function (req, res) {
   var obj = JSON.parse(k);
   len1 = obj.chain.length;
   if (len1 > 1) {
-    con.query("SELECT name,v FROM vote", function (err, result, fields) {
+    con.query("SELECT name,vote FROM vote", function (err, result, fields) {
       for (i = 1; i < len1; i++) {
         for (j = 0; j < result.length; j++) {
           if (result[j].name == obj.chain[i].data) {
