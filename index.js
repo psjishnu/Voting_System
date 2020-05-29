@@ -118,7 +118,7 @@ app.get("/ensure", function (req, res) {
       for (j = 0; j < len1 - 1; j++) {
         if (obj.chain[j + 1].data == result[i].name) {
           restart = 0;
-          if (obj.chain[j + 1].index != result[i].v) {
+          if (obj.chain[j + 1].index != result[i].vote) {
             safe = 0;
             break;
           }
