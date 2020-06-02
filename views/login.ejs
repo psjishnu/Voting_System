@@ -1,29 +1,51 @@
-<html  xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>
-            Login page
-        </title>
-        <script src="Script/login.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
-        <link rel="stylesheet" href="css/new.css">
-    </head>
-    <body>
-        <div  class="container">
-            <button class="btn"  onclick="window.location.href = '\\ensure';">Verify!!</button>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      Login page
+    </title>
+    <script src="Script/login.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Audiowide"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/new.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" onclick="window.location.href = '\\ensure';">
+        Verify!!
+      </button>
+    </div>
+    <h1 class="main">WELCOME</h1>
+    <p id="alrt1"><%= response %></p>
+    <br />
+    <center>
+      <form action="\login" method="post" name="login">
+        <div id="cus1" class="m1">
+          <br /><br /><br /><br /><br />
+          <input
+            type="text"
+            placeholder="Username"
+            name="name"
+            required="required"
+          /><br /><br />
+          <br /><input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required="required"
+          /><br /><br /><br />
+          <p id="id1"><%= logg%></p>
+          <br /><br />
+          <input type="submit" value="login" />
+          <input
+            type="button"
+            onclick="window.location.href = '\\register';"
+            value="register"
+          />
+          <input type="reset" value="cancel" />
         </div>
-        <h1 class="main">WELCOME</h1>
-        <p id="alrt1" ><%= response %></p><br>
-        <center>
-            <form action="\login" method="post" name="login">
-                <div  id="cus1" class="m1">
-                    <br><br><br><br><br><input type="text" placeholder="Username" name="name" required="required"/><br><br>
-                    <br><input type="password" placeholder="Password" name="password" required="required"/><br><br><br>
-                    <p id="id1"><%= logg%></p><br><br>
-                    <input type="submit" value="login"/>
-                    <input type="button" onclick="window.location.href = '\\register';" value="register" />
-                    <input type="reset" value="cancel" />
-                </div>
-            </form>
-        </center>
-    </body>
-</html> 
+      </form>
+    </center>
+  </body>
+</html>
