@@ -334,7 +334,7 @@ app.get("/rollback", urlencodedParser, function (req, res) {
         for (i = 1; i < len1; i++) {
           for (j = 0; j < result.length; j++) {
             if (result[j].name == obj.chain[i].data) {
-              sql = 'update vote set v=x1 where name="x2"';
+              sql = 'update vote set vote=x1 where name="x2"';
               sql = sql.replace("x1", obj.chain[i].index);
               sql = sql.replace("x2", result[j].name);
               con.query(sql, function (err, result, fields) {});
