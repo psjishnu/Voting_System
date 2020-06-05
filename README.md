@@ -2,7 +2,7 @@
 
 1. Extract the downloaded zip file
 2. Rename the folder to "Voting_System"
-3. Move and extract the file node_modules.rar outside the main folder or run `npm install`.
+3. Move and extract the file node_modules.rar in the main folder or run `npm install`.
 4. Open a terminal inside folder Voting_Systems .
 5. Change the value for database accordingly in the file index.js
 
